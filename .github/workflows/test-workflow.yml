@@ -3,12 +3,12 @@ name: My Workflow
 on:
   workflow_dispatch:
     inputs:
-      my-string:
+      mystring:
         description: "Enter a string value"
         required: true
         type: string
         default: "Hello from input!"
-      my-number:
+      mynumber:
         description: "Enter a number"
         required: true
         type: number
@@ -29,5 +29,5 @@ jobs:
 
       - name: Print Inputs (GitHub Auto ENV Test)
         run: |
-          echo "MY STRING INPUT: $INPUT_MY_STRING"
-          echo "MY NUMBER INPUT: $INPUT_MY_NUMBER"
+          echo "MY STRING INPUT: $INPUT_MYSTRING"
+          echo "MY NUMBER INPUT: $INPUT_MYNUMBER"
