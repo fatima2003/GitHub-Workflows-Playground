@@ -8,7 +8,7 @@ on:
         default: "safe"
 
 jobs:
-  vulnerable-1:
+  safe-1:
     runs-on: ubuntu-latest
   
     steps:
@@ -19,7 +19,7 @@ jobs:
         run: |
           echo "INPUTS_NAME=$INPUTS_NAME" >> "$GITHUB_OUTPUT"
 
-      - name: vulnerable-inputs
+      - name: safe inputs
         env:
             INPUTS_NAME: ${{ steps.var.outputs.INPUTS_NAME }}
         run: |
