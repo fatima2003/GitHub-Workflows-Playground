@@ -1,0 +1,26 @@
+name: example
+on:
+  issues:
+  workflow_dispatch:
+    inputs:
+      canthackme:
+        type: string
+        default: "safe"
+
+jobs:
+  vulnerable-1:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: set variable
+        id: var
+        env:
+            INPUTS_NAME: ${{ inputs.canthackme }}
+        run: |
+          echo "INPUTS_NAME=$INPUTS_NAME" >> "$GITHUB_OUTPUT"
+
+      - name: vulnerable-inputs
+        env:
+            INPUTS_NAME: ${{ steps.var.outputs.INPUTS_NAME }}
+        run: |
+           echo "doing a thing: $INPUTS_NAME"

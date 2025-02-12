@@ -5,10 +5,7 @@ on:
     inputs:
       hackme:
         type: string
-        default: "safe"
-
-env:
-  HACKME_ENV: hello
+        default: "unsafe"
 
 jobs:
   vulnerable-1:
@@ -18,4 +15,3 @@ jobs:
       - name: vulnerable-inputs
         run: |
           echo "doing a thing: ${{ inputs.hackme }}"
-          
