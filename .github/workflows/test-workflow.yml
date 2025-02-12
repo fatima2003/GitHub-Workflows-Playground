@@ -1,33 +1,21 @@
-name: My Workflow
-
+name: example
 on:
+  issues:
   workflow_dispatch:
     inputs:
-      mystring:
-        description: "Enter a string value"
-        required: true
+      hackme:
         type: string
-        default: "Hello from input!"
-      mynumber:
-        description: "Enter a number"
-        required: true
-        type: number
-        default: 42
+        default: "safe"
+
+env:
+  HACKME_ENV: hello
 
 jobs:
-  run-hello:
+  vulnerable-1:
     runs-on: ubuntu-latest
+  
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Print Hello World
-        run: echo "Hello, GitHub Actions!"
-
-      - name: List Files
-        run: ls -la
-
-      - name: Print Inputs (GitHub Auto ENV Test)
+      - name: vulnerable-inputs
         run: |
-          echo "MY STRING INPUT: $INPUT_MYSTRING"
-          echo "MY NUMBER INPUT: $INPUT_MYNUMBER"
+          echo "doing a thing: ${{ inputs.hackme }}"
+          
